@@ -9,28 +9,30 @@
 import Foundation
 import Moya
 
-var apiKey: String = ""
-var apiUrl: String = ""
+var apiKey: String = "84af23760314dfede939aa567bbadb40"
+var apiUrl: String = "https://api.themoviedb.org/3/"
 
 enum EntDBApi {
     // T as Top, TR as TopRated, U as upcoming
     case getTMovies
     case getTRMovies
     case getUMovies
-    case getTShow
-    case getTRShow
     case getMovie (query : String)
-    case getShow (query : String)
     case getMovieData (id : String )
-    case getShowData (id: String)
     case getMovieTrailer ( id : String)
-    case getShowTrailer (id : String)
-    
 }
 
 extension EntDBApi : TargetType {
+
+    var sampleData: Data {
+        return Data()
+    }
     
-    var baseUrl : URL {
+    var headers: [String : String]? {
+        return ["Content-Type": "application/json"]
+    }
+    
+    var baseURL : URL {
         guard let url  = URL( string : apiUrl )
             else    { fatalError("Url could not be Configured") }
     return url
@@ -39,31 +41,19 @@ extension EntDBApi : TargetType {
     var path: String {
         switch self {
         case .getTMovies:
-            return "movies/popular"
+            return "movie/popular"
         case .getTRMovies:
-            return "movies/top_rated"
+            return "movie/top_rated"
         case .getUMovies:
-            return "movies/upcoming"
-        case .getTShow:
-            return "tv/popular"
-        case .getTRShow:
-            return "tv/top_rated"
-        case .getMovie:
-            return "search/movie"
-        case .getShow:
-            return "search/tv"
+            return "movie/upcoming"
         case .getMovieData(let id):
             return "movie/" + id
-        case .getShowData(let id):
-            return "tv/" + id
         case .getMovieTrailer(let id):
             var trailerurl = "movie/" + id
             trailerurl += "/videos"
             return trailerurl
-        case .getShowTrailer(let id):
-            var trailerurl = "tv/" + id
-            trailerurl += "/videos"
-            return trailerurl
+        case .getMovie(let query):
+            return "movie/" + query
         }
     }
     
@@ -75,29 +65,29 @@ extension EntDBApi : TargetType {
         }
     }
     
-    var sData: Data
-    {
-        switch self {
-        case .getTMovies:
-            guard let link = Bundle.main.url (forResource: "Movies", withExtension: "json"),
-                let data = try? Data(contentsOf: link) else { return Data() }
-            return data
-        case .getTShow:
-            guard let url = Bundle.main.url(forResource: "Tv", withExtension: "json" ),
-            let data = try? Data(contentsOf: link) else { return Data() }
-            return data
-        case .getMovieData:
-            guard let link = Bundle.main.url (forResource: "Movies", withExtension: "json"),
-                let data = try? Data(contentsOf: link) else { return Data() }
-            return data
-        case .getShowData:
-            guard let link = Bundle.main.url (forResource: "Movies", withExtension: "json"),
-            let data = try? Data(contentsOf: link) else { return Data() }
-            return data
-            
-        default: return Data()
-        }
-    }
+//    var sData: Data
+//    {
+//        switch self {
+//        case .getTMovies:
+//            guard let link = Bundle.main.url (forResource: "Movies", withExtension: "json"),
+//                let data = try? Data(contentsOf: link) else { return Data() }
+//            return data
+//        case .getTShow:
+//            guard let link = Bundle.main.url(forResource: "Tv", withExtension: "json" ),
+//            let data = try? Data(contentsOf: link) else { return Data() }
+//            return data
+//        case .getMovieData:
+//            guard let link = Bundle.main.url (forResource: "Movies", withExtension: "json"),
+//                let data = try? Data(contentsOf: link) else { return Data() }
+//            return data
+//        case .getShowData:
+//            guard let link = Bundle.main.url (forResource: "Movies", withExtension: "json"),
+//            let data = try? Data(contentsOf: link) else { return Data() }
+//            return data
+//
+//        default: return Data()
+//        }
+//    }
     
     var task: Task {
         var  params: [String: String] = [:]
@@ -108,22 +98,17 @@ extension EntDBApi : TargetType {
             params ["query"] = searchobject
             params ["page"] = "1"
             params ["enclude_adult"] = "false"
-            return .rquestParameters (parameters: params, enconding: URLEncoding.queryString)
-        case .getShow(let searchobject):
+            return .requestParameters (parameters: params, encoding: URLEncoding.queryString)
+        case .getMovieData,
+             .getMovieTrailer:
             params ["api_key"] = apiKey
             params ["Language"] = "en-US"
-            params ["query"] = searchobject
-            params ["page"] = "1"
-            return .rquestParameters (parameters: params, enconding: URLEncoding.queryString)
-        case .getMovieData, .getShowData, .getMovieTrailer, .getShowTrailer:
-            params ["api_key"] = apiKey
-            params ["Language"] = "en-US"
-            return .rquestParameters (parameters: params, enconding: URLEncoding.queryString)
+            return .requestParameters (parameters: params, encoding: URLEncoding.queryString)
         default:
             params ["api_key"] = apiKey
             params ["Language"] = "en-US"
             params ["page"] = "1"
-            return .rquestParameters (parameters: params, enconding: URLEncoding.queryString)        }
+            return .requestParameters (parameters: params, encoding: URLEncoding.queryString)        }
     }
 }
 

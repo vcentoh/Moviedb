@@ -13,25 +13,24 @@ let youtubelink = "https://www.youtube.com/watch?v="
 
 struct VideoList: Mappable {
     var list:[Video]?
-    init?(map:Map){
+    init?(map:Map) {
         
     }
-    mutating func mapping(map:Map)
-    {
+    
+    mutating func mapping(map:Map) {
         list <- map["results"]
     }
 }
 
 struct Video: Mappable {
+    
     var videoPath:String?
     var type:String?
     
-    init?(map:Map){
+    init?(map:Map) {
         
     }
-    
-    mutating func mapping(map: Map)
-    {
+    mutating func mapping(map: Map) {
         videoPath <- map["key"]
         type <- map["type"]
     }

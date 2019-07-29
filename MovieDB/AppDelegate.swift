@@ -15,7 +15,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        self.window = UIWindow(frame: UIScreen.main.bounds)
+        let navigationController = UINavigationController()
+        self.window?.rootViewController = navigationController
+        let module = MovieDBModule(with: navigationController)
+        module.showInitalView()
+        self.window?.makeKeyAndVisible()
         return true
     }
 

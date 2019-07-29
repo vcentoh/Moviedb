@@ -7,9 +7,11 @@
 //
 
 import Foundation
+import ObjectMapper
 
-final class Movie: Program {
-    var id: int?
+final class Movie: Show, Mappable {
+    
+    var id: Int?
     var video: Bool?
     var title: String?
     var posterLink: String?
@@ -18,32 +20,33 @@ final class Movie: Program {
     var genre: [Genre]?
     var averageScore: String?
     var popularity: Double?
-    var originalT: String?
-    var DateRelease: String?
+    var originalTitle: String?
+    var dateRelease: String?
     var tagline: String?
     
-    init?(map: Map)
-    {}
+    init() {}
     
-    func mapping (map: Map)
-    {
+    init?(map: Map) {}
+    
+    func mapping (map: Map) {
+        print(map)
         id <- map["id"]
-        title <- map["video"]
+        title <- map["title"]
         posterLink <- map["poster_path"]
-        pg017 <- map["adult"]
+        pg17 <- map["adult"]
         summary <- map ["overview"]
-        DateRelease <- map["release_date"]
+        dateRelease <- map["release_date"]
         genre <- map["genres"]
         averageScore <- map["vote_average"]
         originalTitle <- map["original_title"]
         popularity <- map["popularity"]
         tagline <- map["tagline"]
     }
-    
 }
 
 struct Genre: Mappable {
-    var id: int?
+    
+    var id: Int?
     var name: String?
     
     init?(map: Map){
@@ -53,5 +56,4 @@ struct Genre: Mappable {
         id <- map["id"]
         name <- map["name"]
     }
-    
 }

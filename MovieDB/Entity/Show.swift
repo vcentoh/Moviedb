@@ -8,11 +8,11 @@
 
 import Foundation
 
-
 protocol Show {
-    var id: int? {get set}
+    
+    var id: Int? {get set}
     var video: Bool? {get set}
-    var title: String {get set}
+    var title: String? {get set}
     var posterLink: String? {get set}
     var pg17: Bool? {get set}
     var summary: String? {get set}
@@ -20,4 +20,11 @@ protocol Show {
     var averageScore: String? {get set}
     var popularity: Double? {get set }
     var originalTitle: String? {get set}
+}
+
+public enum SearchType {
+    case popular
+    case upcoming
+    case topRated
+    case searcOnline(word: String)
 }

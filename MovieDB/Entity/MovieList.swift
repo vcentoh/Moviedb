@@ -13,16 +13,11 @@ class MovieList: Mappable {
     
     var list: [Movie]?
     
-    required init?(map: Map)
-    {
-        
-    }
-    init() {
-        
-    }
+    required init?(map: Map) {}
+    
+    init() {}
     
     func mapping(map: Map){
         list <- map["results"]
     }
 }
-

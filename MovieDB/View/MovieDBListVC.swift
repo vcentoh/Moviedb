@@ -11,7 +11,6 @@ import RxSwift
 import RxCocoa
 
 class MovieDBListVC: UIViewController, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, UICollectionViewDataSource, UITabBarDelegate {
-
     
     @IBOutlet weak var searchTextField: UITextField!
     @IBOutlet weak var moviesSelectionTabBar: UITabBar!
@@ -26,6 +25,7 @@ class MovieDBListVC: UIViewController, UICollectionViewDelegate, UICollectionVie
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(true, animated: false)
+        searchTextField.text = ""
     }
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,6 +35,15 @@ class MovieDBListVC: UIViewController, UICollectionViewDelegate, UICollectionVie
     
     private func rxBind() {
         getMovies(with: .popular)
+        
+        searchTextField.rx.controlEvent([.editingChanged])
+            .subscribe(onNext: { [weak self] _ in
+                guard let self = self,
+                     let query = self.searchTextField.text else { return }
+                if query.count >= 3 {
+                    self.getSearchedMovies(by: query)
+                }
+            }).disposed(by: disposeBag)
     }
     
     
@@ -44,13 +53,12 @@ class MovieDBListVC: UIViewController, UICollectionViewDelegate, UICollectionVie
             .debug()
             .subscribe(onNext: { [weak self] movies in
                 self?.movies = movies
-            self?.movieListCollectionView.reloadData()
+                self?.movieListCollectionView.reloadData()
             }).disposed(by: disposeBag)
     }
     
     private func setUI() {
         
-       
         moviesTabBar.selectedItem = moviesTabBar.items?[0]
         moviesTabBar.delegate = self
         movieListCollectionView.delegate = self
@@ -58,6 +66,19 @@ class MovieDBListVC: UIViewController, UICollectionViewDelegate, UICollectionVie
         movieListCollectionView.showsVerticalScrollIndicator = false
         movieListCollectionView.showsHorizontalScrollIndicator = false
         movieListCollectionView.register(UINib(nibName: "MovieDBListCell", bundle: nil), forCellWithReuseIdentifier:"MovieDBListCell")
+        
+        searchTextField.placeholder = "Search for a movie: "
+        searchTextField.autocorrectionType = .no
+        searchTextField.clearButtonMode = .whileEditing
+        searchTextField.returnKeyType = .search
+    }
+    
+    private func getSearchedMovies(by query: String) {
+          presenter?.getMovies(by: query)
+            .subscribe(onNext: { [weak self] movies in
+                self?.movies = movies
+                self?.movieListCollectionView.reloadData()
+            }).disposed(by: disposeBag)
     }
     
     // Delegates

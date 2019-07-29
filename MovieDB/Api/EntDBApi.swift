@@ -17,9 +17,9 @@ enum EntDBApi {
     case getTMovies
     case getTRMovies
     case getUMovies
-    case getMovie (query : String)
-    case getMovieData (id : String )
-    case getMovieTrailer ( id : String)
+    case getMovie(query: String)
+    case getMovieData(id : String )
+    case getMovieTrailer(id : String)
 }
 
 extension EntDBApi : TargetType {
@@ -52,8 +52,8 @@ extension EntDBApi : TargetType {
             var trailerurl = "movie/" + id
             trailerurl += "/videos"
             return trailerurl
-        case .getMovie(let query):
-            return "movie/" + query
+        case .getMovie:
+            return "search/movie"
         }
     }
     

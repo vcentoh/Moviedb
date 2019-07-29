@@ -22,4 +22,8 @@ class MovieDBListPresenter {
     func getMovies(with type: SearchType) -> Observable<MovieList> {
         return interactor.getMovies(with: type)
     }
+    
+    func getMovies(by query: String) -> Observable<MovieList> {
+        return interactor.getMovies(with: .searcOnline(word: query))
+    }
 }

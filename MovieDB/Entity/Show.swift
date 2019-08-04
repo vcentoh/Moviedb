@@ -27,4 +27,5 @@ public enum SearchType {
     case upcoming
     case topRated
     case searcOnline(word: String)
+    case getMovie
 }

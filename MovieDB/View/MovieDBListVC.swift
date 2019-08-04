@@ -120,5 +120,11 @@ class MovieDBListVC: UIViewController, UICollectionViewDelegate, UICollectionVie
         
         return UIEdgeInsets(top: 5.0, left: 0, bottom:5.0 , right:0)
     }
+    
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let movie = MovieList?[indexPath.row]
+        presenter (movie, navigation:self.navigationController)
+    }
 }
 

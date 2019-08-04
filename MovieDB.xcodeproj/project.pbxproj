@@ -23,8 +23,6 @@
 		F233B9B022E63BD7006406FA /* EntDBApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = F233B9AF22E63BD7006406FA /* EntDBApi.swift */; };
 		F24D5AC022EE0B01008E918A /* MovieList.swift in Sources */ = {isa = PBXBuildFile; fileRef = F24D5ABF22EE0B01008E918A /* MovieList.swift */; };
 		F24D5AC222EE0CE1008E918A /* Show.swift in Sources */ = {isa = PBXBuildFile; fileRef = F24D5AC122EE0CE1008E918A /* Show.swift */; };
-		F24D5AC422EE1152008E918A /* TvShowList.swift in Sources */ = {isa = PBXBuildFile; fileRef = F24D5AC322EE1152008E918A /* TvShowList.swift */; };
-		F24D5AC622EE1797008E918A /* TVShow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F24D5AC522EE1797008E918A /* TVShow.swift */; };
 		F24D5AC822EE21A4008E918A /* video.swift in Sources */ = {isa = PBXBuildFile; fileRef = F24D5AC722EE21A4008E918A /* video.swift */; };
 /* End PBXBuildFile section */
 
@@ -49,8 +47,6 @@
 		F233B9AF22E63BD7006406FA /* EntDBApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntDBApi.swift; sourceTree = "<group>"; };
 		F24D5ABF22EE0B01008E918A /* MovieList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieList.swift; sourceTree = "<group>"; };
 		F24D5AC122EE0CE1008E918A /* Show.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Show.swift; sourceTree = "<group>"; };
-		F24D5AC322EE1152008E918A /* TvShowList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TvShowList.swift; sourceTree = "<group>"; };
-		F24D5AC522EE1797008E918A /* TVShow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVShow.swift; sourceTree = "<group>"; };
 		F24D5AC722EE21A4008E918A /* video.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = video.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -132,8 +128,6 @@
 				F24D5AC122EE0CE1008E918A /* Show.swift */,
 				F233B9AB22E63079006406FA /* Movie.swift */,
 				F24D5ABF22EE0B01008E918A /* MovieList.swift */,
-				F24D5AC322EE1152008E918A /* TvShowList.swift */,
-				F24D5AC522EE1797008E918A /* TVShow.swift */,
 				F24D5AC722EE21A4008E918A /* video.swift */,
 			);
 			path = Entity;
@@ -259,30 +253,11 @@
 			files = (
 			);
 			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-MovieDB/Pods-MovieDB-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
-				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
-				"${BUILT_PRODUCTS_DIR}/Moya/Moya.framework",
-				"${BUILT_PRODUCTS_DIR}/Moya-ObjectMapper/Moya_ObjectMapper.framework",
-				"${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework",
-				"${BUILT_PRODUCTS_DIR}/Result/Result.framework",
-				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
-				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
+				"${PODS_ROOT}/Target Support Files/Pods-MovieDB/Pods-MovieDB-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-			);
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Moya.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Moya_ObjectMapper.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapper.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Result.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
+				"${PODS_ROOT}/Target Support Files/Pods-MovieDB/Pods-MovieDB-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -324,13 +299,11 @@
 				F233B9B022E63BD7006406FA /* EntDBApi.swift in Sources */,
 				04FA1AA922EE5C2B0054DC8A /* MovieDBListCell.swift in Sources */,
 				F24D5AC822EE21A4008E918A /* video.swift in Sources */,
-				F24D5AC622EE1797008E918A /* TVShow.swift in Sources */,
 				F225682122E4C703009CF1CA /* MovieDBListVC.swift in Sources */,
 				04FA1AA322EE4F4F0054DC8A /* MovieDBModule.swift in Sources */,
 				F225681F22E4C703009CF1CA /* AppDelegate.swift in Sources */,
 				F24D5AC022EE0B01008E918A /* MovieList.swift in Sources */,
 				04FA1AA022EE46E80054DC8A /* MovieDBListPresenter.swift in Sources */,
-				F24D5AC422EE1152008E918A /* TvShowList.swift in Sources */,
 				F233B9AC22E63079006406FA /* Movie.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

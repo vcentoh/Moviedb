@@ -6,10 +6,10 @@ target 'MovieDB' do
   use_frameworks!
 
   # Pods for MovieDB
-	pod 'Kingfisher'
+  #pod 'Kingfisher'
 	pod 'RxSwift'
   pod 'RxCocoa'
   pod 'Moya/RxSwift'
   pod 'Moya-ObjectMapper/RxSwift'
-	
+  pod 'youtube-ios-player-helper'
 end

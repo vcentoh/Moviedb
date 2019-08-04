@@ -10,7 +10,7 @@ import Foundation
 import Moya
 
 var apiKey: String = "805ee2d7b8a375d7ff0d0bba98317b36"
-var apiUrl: String = "https://api.themoviedb.org/4/"
+var apiUrl: String = "https://api.themoviedb.org/3/"
 
 enum EntDBApi {
     // T as Top, TR as TopRated, U as upcoming

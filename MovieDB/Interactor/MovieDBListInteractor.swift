@@ -34,7 +34,9 @@ class MovieDBListInteractor {
             return provider.rx.request(EntDBApi.getMovie(query: search))
                 .asObservable()
                 .mapObject(MovieList.self)
-
+        default:
+            return Observable.just(MovieList())
         }
     }
+    
 }

@@ -8,7 +8,8 @@
 
 import Foundation
 import UIKit
-import Kingfisher
+
+
 
 let urlPath = "https://image.tmdb.org/t/p/w500"
 
@@ -28,14 +29,14 @@ class MovieDBListCell: UICollectionViewCell {
     }
     
     private func setImage(path: String) {
-        movieImage.contentMode = .scaleAspectFit
-        movieImage.kf.indicatorType = .activity
-        let link = URL(string: urlPath+path)
-        let placeholderImage = UIImage(named: "filmplaceholder")
-        movieImage.kf.setImage(with: link,
-                               placeholder: placeholderImage,
-                               options: [.transition(.fade(0.2))],
-                               progressBlock: nil,
-                               completionHandler: nil)
+        DispatchQueue.global().async {
+            guard let link = URL(string: urlPath + path),
+                let data = try? Data(contentsOf: link) else {return}
+            let image = UIImage(data: data)
+            DispatchQueue.main.async {
+                self.movieImage.image = image
+            }
+            
+        }
     }
 }

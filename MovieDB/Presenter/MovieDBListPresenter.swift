@@ -26,4 +26,8 @@ class MovieDBListPresenter {
     func getMovies(by query: String) -> Observable<MovieList> {
         return interactor.getMovies(with: .searcOnline(word: query))
     }
+    func showMovieDetail(with movie:Movie?, navigation:UINavigationController)
+    {
+        router.showMovieDetail(with: movie, navigation: navigation)
+    }
 }

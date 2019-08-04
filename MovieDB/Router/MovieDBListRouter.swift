@@ -24,4 +24,10 @@ class MovieDBListRouter {
         viewController?.presenter = presenter
         navigation.setViewControllers([viewController ?? UIViewController()], animated: true)
     }
+    func  showMovieDetail(with movie: Movie?, navigation:UINavigationController)
+    {
+      let detailModule = MovieDetailModule()
+        detailModule.showMovieDetail(with: movie ?? Movie(), navigation: navigation)
+    }
+
 }

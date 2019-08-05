@@ -15,13 +15,3 @@ An app that lists Movies using VIPER
 - [RxSwift](https://github.com/ReactiveX/RxSwift)
 - [Moya](https://github.com/Moya/Moya)
 
-
-### Images
-
-- Main view Controller
-
-![Screenshot]/Users/mac/Desktop/mainVC.png)
-- Detail controller
-
-![Screenshot](/Users/mac/Desktop/mainVC.png)
-

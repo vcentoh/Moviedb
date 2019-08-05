@@ -34,9 +34,9 @@
                                     <constraint firstAttribute="height" constant="50" id="4Q3-DW-yTr"/>
                                 </constraints>
                                 <items>
-                                    <tabBarItem systemItem="topRated" id="iyF-YA-zje" userLabel="Popular"/>
-                                    <tabBarItem systemItem="favorites" id="evO-vy-S23" userLabel="Top Rated"/>
-                                    <tabBarItem systemItem="more" id="mFj-8Z-zrQ" userLabel="Upcoming"/>
+                                    <tabBarItem title="Top Rated" image="Tr" id="iyF-YA-zje" userLabel="Popular"/>
+                                    <tabBarItem title="Popular" image="pop" id="evO-vy-S23" userLabel="Top Rated"/>
+                                    <tabBarItem title="Upcoming" image="Upc" id="mFj-8Z-zrQ" userLabel="Upcoming"/>
                                 </items>
                             </tabBar>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="qR5-sD-ZXZ">
@@ -108,4 +108,9 @@
             <point key="canvasLocation" x="131.8840579710145" y="95.758928571428569"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Tr" width="16" height="16"/>
+        <image name="Upc" width="16" height="16"/>
+        <image name="pop" width="16" height="16"/>
+    </resources>
 </document>

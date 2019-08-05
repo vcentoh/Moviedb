@@ -1,5 +1,5 @@
 //
-//  moviedetailvc.swift
+//  MovieDetailVC.swift
 //  MovieDB
 //
 //  Created by Vicent de Freitas on 8/4/19.
@@ -13,10 +13,10 @@ import RxCocoa
 import youtube_ios_player_helper
 
 class MovieDetailVC: UIViewController {
-    @IBOutlet weak var TrailerView: UIView!
-    @IBOutlet weak var TitleLabel: UILabel!
-    @IBOutlet weak var Sumary: UITextView!
-    @IBOutlet weak var ScoreLabel: UILabel!
+    @IBOutlet weak var trailerView: UIView!
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var sumary: UITextView!
+    @IBOutlet weak var scoreLabel: UILabel!
     
     private var video: YTPlayerView?
     private let presenter: MovieDetailPresenter
@@ -24,7 +24,7 @@ class MovieDetailVC: UIViewController {
     private var disposeBag = DisposeBag()
     
     init (with presenter:MovieDetailPresenter, movie: Movie){
-     self.presenter = presenter
+        self.presenter = presenter
         self.movie = movie
         super.init(nibName: "MovieDetailVC", bundle: nil)
         
@@ -41,7 +41,26 @@ class MovieDetailVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.setUI()
         self.rxbind()
+    }
+    
+    private func setUI() {
+        titleLabel.font = .boldSystemFont(ofSize: 16)
+        titleLabel.text = ""
+        titleLabel.textAlignment = .center
+        titleLabel.numberOfLines = 2
+        titleLabel.lineBreakMode = .byWordWrapping
+        sumary.font = .italicSystemFont(ofSize: 14)
+        sumary.isEditable = false
+        sumary.textAlignment = .left
+        sumary.text = ""
+        sumary.scrollRangeToVisible(NSMakeRange(0, 0))
+        
+        scoreLabel.font = .italicSystemFont(ofSize: 12)
+        scoreLabel.textColor = .gray
+        scoreLabel.text = ""
+        scoreLabel.textAlignment = .right
     }
     
     private func rxbind()
@@ -53,23 +72,24 @@ class MovieDetailVC: UIViewController {
         
         presenter.getMovieTrailer(with: String(id))
             .subscribe(onNext: { [weak self] Trailer in
-            self?.setTrailer(with: Trailer)
+                self?.setTrailer(with: Trailer)
             }).disposed(by: disposeBag)
         
     }
     
     private func setUI(with movie:Movie)
     {
-     TitleLabel.text = movie.originalTitle
-     Sumary.text = movie.summary
-        ScoreLabel.text = "Score: " + String(describing: movie.averageScore ?? "")
+        titleLabel.text = movie.originalTitle
+        sumary.text = movie.summary
+        sumary.contentOffset = .zero
+        scoreLabel.text = "Relase date: " + String(describing: movie.dateRelease ?? "")
     }
     
     private func setTrailer(with video: VideoList)
     {
         guard let video = video.list?.first else {return}
-        self.video = YTPlayerView(frame: self.TrailerView.bounds)
+        self.video = YTPlayerView(frame: self.trailerView.bounds)
         self.video?.load(withVideoId: video.videoPath ?? "")
-        self.TrailerView.addSubview(self.video ??  UIView())
+        self.trailerView.addSubview(self.video ??  UIView())
     }
 }

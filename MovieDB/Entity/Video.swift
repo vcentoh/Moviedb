@@ -1,5 +1,5 @@
 //
-//  video.swift
+//  Video.swift
 //  MovieDB
 //
 //  Created by Vicent de Freitas on 7/28/19.

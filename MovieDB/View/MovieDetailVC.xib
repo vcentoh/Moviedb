@@ -10,12 +10,12 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="moviedetailvc" customModule="MovieDB" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MovieDetailVC" customModule="MovieDB" customModuleProvider="target">
             <connections>
-                <outlet property="ScoreLabel" destination="XcQ-Yi-8xN" id="BHT-8B-yji"/>
-                <outlet property="Sumary" destination="9T9-FQ-1kn" id="7dA-Oa-AnQ"/>
-                <outlet property="TitleLabel" destination="3Ao-yF-uWP" id="EGd-bE-xNH"/>
-                <outlet property="TrailerView" destination="vGp-UG-6PA" id="FTY-YF-JLY"/>
+                <outlet property="scoreLabel" destination="XcQ-Yi-8xN" id="vK2-nj-wLW"/>
+                <outlet property="sumary" destination="9T9-FQ-1kn" id="PIO-91-mIo"/>
+                <outlet property="titleLabel" destination="3Ao-yF-uWP" id="smp-j1-YHQ"/>
+                <outlet property="trailerView" destination="VHG-4C-dv7" id="pao-WF-0d5"/>
                 <outlet property="view" destination="iN0-l3-epB" id="3Yp-cr-mbt"/>
             </connections>
         </placeholder>
@@ -27,8 +27,8 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vGp-UG-6PA">
                     <rect key="frame" x="10" y="64" width="394" height="200"/>
                     <subviews>
-                        <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VHG-4C-dv7">
-                            <rect key="frame" x="0.0" y="0.0" width="394" height="200"/>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VHG-4C-dv7">
+                            <rect key="frame" x="5" y="5" width="384" height="200"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="200" id="sbu-KV-vL1"/>
@@ -38,6 +38,9 @@
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="200" id="5g0-yk-66X"/>
+                        <constraint firstItem="VHG-4C-dv7" firstAttribute="leading" secondItem="vGp-UG-6PA" secondAttribute="leading" constant="5" id="BUC-j3-kH7"/>
+                        <constraint firstAttribute="trailing" secondItem="VHG-4C-dv7" secondAttribute="trailing" constant="5" id="HZq-ZL-sIc"/>
+                        <constraint firstItem="VHG-4C-dv7" firstAttribute="top" secondItem="vGp-UG-6PA" secondAttribute="top" constant="5" id="ZY8-oM-l1N"/>
                     </constraints>
                 </view>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Ao-yF-uWP">
@@ -49,15 +52,18 @@
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="9T9-FQ-1kn">
-                    <rect key="frame" x="20" y="374" width="240" height="458"/>
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="9T9-FQ-1kn">
+                    <rect key="frame" x="5" y="374" width="342" height="458"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                 </textView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XcQ-Yi-8xN">
-                    <rect key="frame" x="310" y="421" width="74" height="46"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XcQ-Yi-8xN">
+                    <rect key="frame" x="367" y="374" width="42" height="40"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="gaW-vo-6Pd"/>
+                    </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
@@ -65,21 +71,25 @@
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="9T9-FQ-1kn" firstAttribute="top" secondItem="XcQ-Yi-8xN" secondAttribute="bottom" constant="-67.5" id="7NR-xg-YF5"/>
                 <constraint firstItem="3Ao-yF-uWP" firstAttribute="top" secondItem="vGp-UG-6PA" secondAttribute="bottom" constant="30" id="9xE-qC-yPg"/>
+                <constraint firstItem="9T9-FQ-1kn" firstAttribute="width" relation="lessThanOrEqual" secondItem="iN0-l3-epB" secondAttribute="width" id="CDB-ex-uzA"/>
                 <constraint firstItem="3Ao-yF-uWP" firstAttribute="centerX" relation="lessThanOrEqual" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="COe-I3-YDR"/>
                 <constraint firstItem="vGp-UG-6PA" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="HFJ-JT-7pK"/>
+                <constraint firstItem="VHG-4C-dv7" firstAttribute="width" relation="lessThanOrEqual" secondItem="iN0-l3-epB" secondAttribute="width" id="Htc-hY-V5D"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="vGp-UG-6PA" secondAttribute="trailing" constant="10" id="JM0-To-zgz"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="XcQ-Yi-8xN" secondAttribute="trailing" constant="30" id="Khv-GV-4CW"/>
-                <constraint firstItem="9T9-FQ-1kn" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="MF3-2G-uT8"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="XcQ-Yi-8xN" secondAttribute="trailing" constant="5" id="Khv-GV-4CW"/>
+                <constraint firstItem="9T9-FQ-1kn" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="5" id="Mqz-Fd-jwk"/>
+                <constraint firstItem="XcQ-Yi-8xN" firstAttribute="top" secondItem="9T9-FQ-1kn" secondAttribute="top" id="RGd-21-rUZ"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="9T9-FQ-1kn" secondAttribute="bottom" constant="30" id="T3H-PB-Vu7"/>
-                <constraint firstItem="XcQ-Yi-8xN" firstAttribute="top" secondItem="3Ao-yF-uWP" secondAttribute="bottom" constant="100" id="XFr-HB-n5S"/>
+                <constraint firstItem="XcQ-Yi-8xN" firstAttribute="leading" secondItem="9T9-FQ-1kn" secondAttribute="trailing" constant="20" id="UzV-TI-Tvw"/>
                 <constraint firstItem="vGp-UG-6PA" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="10" id="bVD-ya-Ir3"/>
                 <constraint firstItem="9T9-FQ-1kn" firstAttribute="top" secondItem="3Ao-yF-uWP" secondAttribute="bottom" constant="30" id="dB6-hY-7qQ"/>
+                <constraint firstItem="3Ao-yF-uWP" firstAttribute="width" relation="lessThanOrEqual" secondItem="iN0-l3-epB" secondAttribute="width" id="elO-Vk-sdN"/>
                 <constraint firstItem="vGp-UG-6PA" firstAttribute="width" relation="lessThanOrEqual" secondItem="iN0-l3-epB" secondAttribute="width" id="kGk-gm-Ro9"/>
                 <constraint firstItem="vGp-UG-6PA" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="20" id="ppA-QW-QCa"/>
                 <constraint firstItem="3Ao-yF-uWP" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="rqL-Dv-nKV"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="3Ao-yF-uWP" secondAttribute="trailing" constant="20" id="sQK-BY-xKb"/>
+                <constraint firstItem="VHG-4C-dv7" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="sxa-7N-lfl"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <point key="canvasLocation" x="131.8840579710145" y="110.49107142857143"/>

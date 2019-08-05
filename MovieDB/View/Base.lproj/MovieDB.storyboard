@@ -34,13 +34,13 @@
                                     <constraint firstAttribute="height" constant="50" id="4Q3-DW-yTr"/>
                                 </constraints>
                                 <items>
-                                    <tabBarItem title="Top Rated" image="Tr" id="iyF-YA-zje" userLabel="Popular"/>
-                                    <tabBarItem title="Popular" image="pop" id="evO-vy-S23" userLabel="Top Rated"/>
-                                    <tabBarItem title="Upcoming" image="Upc" id="mFj-8Z-zrQ" userLabel="Upcoming"/>
+                                    <tabBarItem title="Top Rated" image="pop" selectedImage="pop" id="iyF-YA-zje" userLabel="Popular"/>
+                                    <tabBarItem title="Popular" image="Tr" selectedImage="Tr" id="evO-vy-S23" userLabel="Top Rated"/>
+                                    <tabBarItem title="Upcoming" image="upc" selectedImage="upc" id="mFj-8Z-zrQ" userLabel="Upcoming"/>
                                 </items>
                             </tabBar>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="qR5-sD-ZXZ">
-                                <rect key="frame" x="20" y="74" width="374" height="643"/>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="qR5-sD-ZXZ">
+                                <rect key="frame" x="0.0" y="169" width="414" height="643"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Vvt-Df-qGi">
                                     <size key="itemSize" width="370" height="216"/>
@@ -50,7 +50,7 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="QHf-DP-glJ">
-                                        <rect key="frame" x="2" y="0.0" width="370" height="216"/>
+                                        <rect key="frame" x="22" y="0.0" width="370" height="216"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
                                             <rect key="frame" x="0.0" y="0.0" width="370" height="216"/>
@@ -109,8 +109,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Tr" width="16" height="16"/>
-        <image name="Upc" width="16" height="16"/>
-        <image name="pop" width="16" height="16"/>
+        <image name="Tr" width="25" height="25"/>
+        <image name="pop" width="25" height="25"/>
+        <image name="upc" width="25" height="25"/>
     </resources>
 </document>

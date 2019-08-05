@@ -20,7 +20,8 @@ An app that lists Movies using VIPER
 
 - Main view Controller
 
+![Screenshot]/Users/mac/Desktop/mainVC.png)
+- Detail controller
 
--Detail controller
-
+![Screenshot](/Users/mac/Desktop/mainVC.png)
 
